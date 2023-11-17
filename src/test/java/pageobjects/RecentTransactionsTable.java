@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import tests.BaseTest;
 
 import java.util.List;
 
@@ -22,7 +21,7 @@ public class RecentTransactionsTable extends BasePage {
 
     public int countRowsContain (String column, String cellContent) {
         scrollIntoView(RecentTransactionsTable);
-        int columnNum = returnCulomnContain(column);
+        int columnNum = returnColumnContain(column);
         int rowsContainNum=0;
         List<WebElement> rowCells;
         for (WebElement row : tableRows) {
@@ -34,7 +33,7 @@ public class RecentTransactionsTable extends BasePage {
         return rowsContainNum;
     }
 
-    private int returnCulomnContain (String column) {
+    private int returnColumnContain(String column) {
         int columnNum=-1;
         for (int i=0; i<headerCells.size(); i++) {
             if (headerCells.get(i).getText().contains(column)) {
